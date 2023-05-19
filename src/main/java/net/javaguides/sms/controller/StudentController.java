@@ -6,11 +6,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import net.javaguides.sms.entity.Student;
 import net.javaguides.sms.service.StudentService;
 
 @Controller
+
 public class StudentController {
 	
 	private StudentService studentService;
@@ -21,6 +23,11 @@ public class StudentController {
 	}
 	
 	// handler method to handle list students and return mode and view
+	@GetMapping("/")
+	public String home() {
+		return "home";
+	}
+	
 	@GetMapping("/students")
 	public String listStudents(Model model) {
 		model.addAttribute("students", studentService.getAllStudents());
@@ -60,7 +67,8 @@ public class StudentController {
 		existingStudent.setFirstName(student.getFirstName());
 		existingStudent.setLastName(student.getLastName());
 		existingStudent.setEmail(student.getEmail());
-		
+		existingStudent.setNgaysinh(student.getNgaysinh());
+		existingStudent.setMadt(student.getMadt());
 		// save updated student object
 		studentService.updateStudent(existingStudent);
 		return "redirect:/students";		

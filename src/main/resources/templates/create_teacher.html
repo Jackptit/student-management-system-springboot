@@ -22,7 +22,7 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" th:href="@{/students}">Student Management</a>
+        <a class="nav-link" th:href="@{/teachers}">Teacher Management</a>
       </li>
     </ul>
   </div>
@@ -32,11 +32,11 @@
 	<div class = "container">
 		<div class = "row">
 			<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-				<h1 class = "text-center"> Update Student </h1>
+				<h1 class = "text-center"> Create New Teacher </h1>
 				<div class = "card-body">
-					<form th:action="@{/students/{id} (id=${student.id})}" th:object = "${student}" method="POST">
+					<form th:action="@{/teachers}" th:object = "${teacher}" method="POST">
 						<div class ="form-group">
-							<label> Student First Name </label>
+							<label>  First Name </label>
 							<input
 							type = "text"
 							name = "firstName"
@@ -47,45 +47,23 @@
 						</div>
 						
 						<div class ="form-group">
-							<label> Student Last Name </label>
+							<label>  Last Name </label>
 							<input
 							type = "text"
 							name = "lastName"
 							th:field = "*{lastName}"
 							class = "form-control"
-							placeholder="Enter Student Last Name" 
+							placeholder="Enter  Last Name" 
 							/>
-						</div>
-						
+						</div>												
 						<div class ="form-group">
-							<label> Student Email </label>
+							<label> Date of birth </label>
 							<input
 							type = "text"
-							name = "email"
-							th:field = "*{email}"
+							name = "dateofbirth"
+							th:field = "*{date_of_birth}"
 							class = "form-control"
-							placeholder="Enter Student Email" 
-							/>
-						</div>
-						
-						<div class ="form-group">
-							<label> Student ngaysinh </label>
-							<input
-							type = "text"
-							name = "ngaysinh"
-							th:field = "*{ngaysinh}"
-							class = "form-control"
-							placeholder="" 
-							/>
-						</div>
-						<div class ="form-group">
-							<label> Ma dao tao </label>
-							<input
-							type = "text"
-							name = "madt"
-							th:field = "*{madt}"
-							class = "form-control"
-							placeholder="" 
+							placeholder="Enter date of birth" 
 							/>
 						</div>
 						
